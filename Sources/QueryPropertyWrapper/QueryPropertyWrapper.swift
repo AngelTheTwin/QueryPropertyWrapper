@@ -59,5 +59,5 @@ public struct Query<Value>: DynamicProperty {
         isFetched = false
     }
     
-    private var query: () async throws -> Value
+    public var query: () async throws -> Value
 }
