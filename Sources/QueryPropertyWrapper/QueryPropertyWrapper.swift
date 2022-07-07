@@ -11,15 +11,15 @@ import SwiftUI
 
 /// A Property Wrapper type to make fetch async operations asynchronously. Returns the fetched object/struct as the wrappedValue and a tuple conformed by the isLoading, error, refetch and bindingValue properties.
 @propertyWrapper
-struct Query<Value>: DynamicProperty {
+public struct Query<Value>: DynamicProperty {
     @State private var isLoading: Bool = true
     @State private var error: Error? = nil
     @State private var isFetched = false
     
-    @State var wrappedValue: Value
+    @State public var wrappedValue: Value
     
     /// - Returns: A tuple conformed by the isLoading, error, refetch and bindingValue properties.
-    var projectedValue: (isLoading: Bool, error: Error?, refetch: () -> (), bindingValue: Binding<Value>) {
+    public var projectedValue: (isLoading: Bool, error: Error?, refetch: () -> (), bindingValue: Binding<Value>) {
         Task {
             if (!isFetched) {
                 do {
