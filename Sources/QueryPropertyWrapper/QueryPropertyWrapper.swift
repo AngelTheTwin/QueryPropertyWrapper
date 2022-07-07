@@ -48,7 +48,7 @@ public struct Query<Value>: DynamicProperty {
     /// - Parameters:
     ///   - wrappedValue: the default value in case the query fails.
     ///   - query: an async throws function responsible for fetching the data
-    init (wrappedValue: Value, query: @escaping () async throws -> Value) {
+    public init (wrappedValue: Value, query: @escaping () async throws -> Value) {
         self._wrappedValue = State(initialValue: wrappedValue)
         self.query = query
     }
