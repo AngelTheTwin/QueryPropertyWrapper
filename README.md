@@ -47,7 +47,7 @@ struct QueryExample: View {
     var body: some View {
         VStack {
             if ($user.isLoading) { // through conditional rendering we can place progress views when our query is being fetched
-                ProgressiveView()
+                ProgressView()
             } else if let error = $user.error {
                 Text("Ups! an error occurred!") // let the user know when there was an error
             } else {
