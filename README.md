@@ -66,6 +66,18 @@ struct QueryExample: View {
 
 ## Usage
 
+Add this package to your proyect.
+1. Copy the url of this repository.
+2. In Xcode, go to `File> Add Packages...`
+You should see a window pop up like this...
+
+<image src="https://user-images.githubusercontent.com/62160767/177834222-aadd7fe2-6fef-4260-898f-bfc95d1ada31.png" width="600"/>
+
+3. Paste the url on the top right textfield.
+4. Once the information about the package has loaded, click the `Add Package` button.
+5. The QueryPropertyWrapper product will be checked by default on the Choose Package Products for QueryPropertyWrapper. Just click `Add Package` again an wait for the operation to finish.
+
+### Put it in practice
 - To begin create a var with the `@Query` propperty wrapper.
 Make sure to include the fetching function in the parameter `query:` of the initializer.
 
