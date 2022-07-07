@@ -1,7 +1,7 @@
 # QueryPropertyWrapper
 
 A custom property wrapper to fetch data asynchronously in SwiftUI Views.
-Inspired by the React Query hook, but with much less functionality.
+Inspired by the React useQuery hook, but with much less functionality.
 
 ## Why to use Query?
 
