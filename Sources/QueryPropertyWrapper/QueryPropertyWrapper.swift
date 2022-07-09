@@ -11,16 +11,16 @@ import SwiftUI
 
 /// A Property Wrapper type to make fetch async operations asynchronously. Returns the fetched object/struct as the wrappedValue and a tuple conformed by the isLoading, error, refetch and bindingValue properties.
 @propertyWrapper
-struct Query<Value, Params>: DynamicProperty {
+public struct Query<Value, Params>: DynamicProperty {
     @State private var isLoading: Bool = true
     @State private var error: Error? = nil
     @State private var isFetched = false
-    var params: Params
+    public var params: Params
     
-    @State var wrappedValue: Value
+    @State public var wrappedValue: Value
     
     /// - Returns: A tuple conformed by the isLoading, error, refetch and bindingValue properties.
-    var projectedValue: (isLoading: Bool, error: Error?, refetch: () -> (), bindingValue: Binding<Value>) {
+    public var projectedValue: (isLoading: Bool, error: Error?, refetch: () -> (), bindingValue: Binding<Value>) {
         Task {
             if (!isFetched) {
                 do {
@@ -49,10 +49,10 @@ struct Query<Value, Params>: DynamicProperty {
     /// - Parameters:
     ///   - wrappedValue: the default value in case the query fails.
     ///   - query: an async throws function responsible for fetching the data
-    init (wrappedValue: Value, query: @escaping (Params) async throws -> Value, params: Params = () as! Params) {
+    public init (wrappedValue: Value, query: @escaping (Params) async throws -> Value, params: Params = () as! Params) {
         self._wrappedValue = State(initialValue: wrappedValue)
-        self.params = params
         self.query = query
+        self.params = params
     }
     
     /// Executes the given query to update the data
@@ -61,5 +61,5 @@ struct Query<Value, Params>: DynamicProperty {
         isFetched = false
     }
     
-    private var query: (Params) async throws -> Value
+    public var query: (Params) async throws -> Value
 }
